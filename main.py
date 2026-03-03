@@ -1,25 +1,40 @@
 import translator as tr
 
 t = tr.Translator()
+t.loadDictionary("dictionary.txt")
 
 
 while(True):
 
-    t.printMenu()
+    print("---------------------------------")
+    print("     Translator Alien-Italian    ")
+    print("---------------------------------")
 
-    t.loadDictionary("filename.txt")
+    t.printMenu()
 
     txtIn = input()
 
     # Add input control here!
 
-    if int(txtIn) == 1:
-        print()
-        txtIn = input()
-        pass
-    if int(txtIn) == 2:
-        pass
-    if int(txtIn) == 3:
-        pass
-    if int(txtIn) == 4:
-        break
+    if int(txtIn) >= 1 and int(txtIn) <= 5:
+
+        if int(txtIn) == 1:
+            print("Okay, quale parola devo aggiungere?")
+            txtIn = input()
+            t.handleAdd(txtIn)
+            continue
+        if int(txtIn) == 2:
+            print("Okay, quale parola devo cercare?")
+            txtIn = input()
+            t.handleTranslate(txtIn)
+            continue
+        if int(txtIn) == 3:
+            pass
+        if int(txtIn) == 4:
+            print("Okay, stampo tutto il dizionario!")
+            for elem in t.dictionary.dictionary.items():
+                print(elem[0], " ", elem[1])
+            continue
+        if int(txtIn) == 5:
+            print("Chiudo il programma! Ciau!")
+            break
