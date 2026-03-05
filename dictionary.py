@@ -3,7 +3,9 @@ class Dictionary:
         self.dictionary = {}
 
     def addWord(self, word: str, transl: list):
+        traduzioni = []
         if word.isalpha():
+            traduzioni.append(word)
 
             if word not in self.dictionary.keys():
                 self.dictionary[word] = []
@@ -11,9 +13,11 @@ class Dictionary:
             for parola in transl:
                 if parola.isalpha():
                     self.dictionary[word].append(parola)
-                    #print(f"Parola {parola} aggiunta come traduzione a {word}!")
-               #else:
-                    #print(f"La parola {parola} non può essere aggiunta dato che contiene caratteri non ammessi! ")
+                    traduzioni.append(parola)
+                    print(f"Parola {parola} aggiunta come traduzione a {word}!")
+                else:
+                    print(f"La parola {parola} non può essere aggiunta dato che contiene caratteri non ammessi! ")
+        return traduzioni
 
     def translate(self, word: str):
         if word.isalpha() and word in self.dictionary.keys():
@@ -24,5 +28,8 @@ class Dictionary:
 
 
 
-    def translateWordWildCard(self):
-        pass
+    def translateWordWildCard(self, word: str):
+        for parola in self.dictionary.keys():
+            for letter, i in enumerate(word):
+                if letter == parola[i]:
+                    ...

@@ -29,14 +29,14 @@ class Translator:
         alieno = parole[0]
         italiano = parole[1:]
 
-        self.dictionary.addWord(alieno, italiano)
-        print(f"['{alieno}', '{italiano}']" + "\n" + "Aggiunta!")
+        traduzioni = self.dictionary.addWord(alieno, italiano)
+        print(f"{traduzioni}" + "\n" + "Aggiunta!")
 
     def handleTranslate(self, query):
         # query is a string <parola_aliena>
         if query.isalpha() and query in self.dictionary.dictionary.keys():
-            translation = self.dictionary.translate(query)
-            print(f"['{translation}']")
+            #translation = self.dictionary.translate(query)
+            print(f"{self.dictionary.translate(query)}")
         else:
             print(f"La parola fornita ({query}) non è nel dizionario oppure ha un formato scorretto")
 
