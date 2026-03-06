@@ -29,7 +29,10 @@ while(True):
             t.handleTranslate(txtIn)
             continue
         if int(txtIn) == 3:
-            pass
+            print("Okay, quale parola devo cercare?")
+            txtIn = input()
+            t.handleWildCard(txtIn)
+            continue
         if int(txtIn) == 4:
             print("Okay, stampo tutto il dizionario!")
             for elem in t.dictionary.dictionary.items():

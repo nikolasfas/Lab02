@@ -29,7 +29,18 @@ class Dictionary:
 
 
     def translateWordWildCard(self, word: str):
+
         for parola in self.dictionary.keys():
-            for letter, i in enumerate(word):
-                if letter == parola[i]:
-                    ...
+
+            if len(parola) == len(word):
+                match = True
+                for i in range(len(word)):
+                    if word[i] != "?" and word[i] != parola[i]:
+                        match = False
+                        continue
+
+                if match:
+                    word = parola
+                    return self.dictionary[word], parola
+
+
